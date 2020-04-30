@@ -42,7 +42,7 @@
     foreach($errores as $error){
         echo "<br />$error";
     }
-//    
+//
 
 
 
