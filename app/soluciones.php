@@ -29,6 +29,7 @@ function solucionEjercicio2($hora){
 }
 
 function solucionEjercicio3($mascota){
+//    Uso de tabla
     $mascotas = [
         "perro" => ["posicion" => 1, "nombre" => "Titan"],
         "gato" => ["posicion" => 2, "nombre" => "Galileo"],

@@ -33,7 +33,7 @@ include_once "soluciones.php";
 <div class="background w3-display-container w3-opacity-min">
     <div class="w3-display-middle">
         <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
-            Trabajo práctico IV PHP <br/>
+            Trabajo práctico IV PHP <br />
             Manejo de vectores y formularios</span>
     </div>
 </div>
@@ -69,11 +69,11 @@ include_once "soluciones.php";
         <p class="w3-center w3-light-gray w3-padding">
             <em>
                 <?php
-                    $hora = 5;
+                $hora = 5;
 
-                    $resultado = solucionEjercicio1($hora);
+                $resultado = solucionEjercicio1($hora);
 
-                    echo "$resultado, son las $hora hs.";
+                echo "$resultado, son las $hora hs.";
                 ?>
             </em>
         </p>
@@ -88,12 +88,12 @@ include_once "soluciones.php";
         <p class="w3-center w3-light-gray w3-padding">
             <em>
                 <?php
-                    $hora = 26;
+                $hora = 26;
 
-                    $resultado = solucionEjercicio2($hora);
+                $resultado = solucionEjercicio2($hora);
 
-                    echo "Hola, son las $hora hs <br/>" .
-                           "<img src='$resultado' width=\"200\" >";
+                echo "Hola, son las $hora hs <br />" .
+                    "<img src='$resultado' width=\"200\" >";
                 ?>
             </em>
         </p>
@@ -113,17 +113,17 @@ include_once "soluciones.php";
         <p class="w3-center w3-light-gray w3-padding">
             <em>
                 <?php
-                    $mascota = "asd";
+                $mascota = "asd";
 
-                    $resultado = solucionEjercicio3($mascota);
+                $resultado = solucionEjercicio3($mascota);
 
-                    if(is_array($resultado)){
-                        echo "Animal elegido: " . ucfirst($mascota) . "<br/>" .
-                             "Nombre del animal: " . $resultado["nombre"] . "<br/>" .
-                             "Posición del animal en el array: " . $resultado["posicion"];
-                    }else{
-                        echo $resultado;
-                    }
+                if(is_array($resultado)){
+                    echo "Animal elegido: " . ucfirst($mascota) . "<br />" .
+                        "Nombre del animal: " . $resultado["nombre"] . "<br />" .
+                        "Posición del animal en el array: " . $resultado["posicion"];
+                }else{
+                    echo $resultado;
+                }
                 ?>
             </em>
         </p>
@@ -140,29 +140,30 @@ include_once "soluciones.php";
         <p class="w3-center w3-light-gray w3-padding">
             <em>
                 $cosas = ("gato","perro","caballo","pez","tomate", 2, 5.6);
-                <br/>
-                <br/>
+                <br />
+                <br />
                 <?php
-                    $cosas = array("gato", "perro", "caballo", "pez", "tomate", 2, 5.6);
+                $cosas = array("gato", "perro", "caballo", "pez", "tomate", 2, 5.6);
 
-                    $resultado = solucionEjercicio4($cosas);
+                $resultado = solucionEjercicio4($cosas);
 
-                    echo "Resultado con función print_r: ";
-                    print_r($resultado);
+                echo "Resultado con función print_r: ";
+                print_r($resultado);
 
-                    //Practicando funciones: Me devuelve el value de la última posición del array
-                    echo "<br/> Resultado con foreach: ";
-                    $primer_valor = reset($resultado);
-                    $ultimo_valor = end($resultado);
-                    foreach ($resultado as $key => $value){
-                        if($value == $primer_valor){ //Agrega un paréntesis al primer elemento
-                            echo "($value, ";
-                        }elseif($value != $ultimo_valor){ //No imprime paréntesis a los valores intermedios
-                            echo "$value, ";
-                        }else{ //Agrega un paréntesis al último elemento
-                            echo "$value)";
-                        }
+                //Practicando funciones: Me devuelve el value de la última posición del array
+                //Realizo lógica en el index para no crear otras nuevas funciones.
+                echo "<br /> Resultado con foreach: ";
+                $primer_valor = reset($resultado);
+                $ultimo_valor = end($resultado);
+                foreach ($resultado as $key => $value){
+                    if($value == $primer_valor){ //Agrega un paréntesis al primer elemento
+                        echo "($value, ";
+                    }elseif($value != $ultimo_valor){ //No imprime paréntesis a los valores intermedios
+                        echo "$value, ";
+                    }else{ //Agrega un paréntesis al último elemento
+                        echo "$value)";
                     }
+                }
                 ?>
             </em>
         </p>
@@ -176,7 +177,12 @@ include_once "soluciones.php";
         <p class="w3-center w3-light-gray w3-padding">
             <em>
                 <?php
+                $valores = array(4,10,3,100,4,2,25,50,-10);
+                $resultado = solucionEjercicio5($valores);
 
+                echo "Dado el array: ";
+                print_r($valores);
+                echo "<br /> El valor máximo del array es : $resultado";
 
 
                 ?>
@@ -231,10 +237,27 @@ include_once "soluciones.php";
         </p>
     </div>
 
+    <form action="./registro.php" method="POST">
+        <label>Nombre: <input type="text" name="nombre"></label><br />
+        <label>Apellido <input type="text" name="apellido"></label><br />
+        <label>D.N.I: <input type="text" name="dni" ></label><br />
+        <!--        <label>E-mail: <input type="text" name="" id=""></label><br />-->
+        <!--        <label>Sexo: <input type="text" name="" id=""></label><br />-->
+        <!--        <label>Fecha de nacimiento: <input type="text"></label><br />-->
+        <!--        <label>Tilde documentación presentada:<br />-->
+        <!--            <label><input type="checkbox" name="docu_presentada[]" id="">DNI</label><br />-->
+        <!--            <label><input type="checkbox" name="docu_presentada[]" id="">PArtida de Nacimiento</label><br>-->
+        <!--            <label><input type="checkbox" name="docu_presentada[]" id="">Libreta de casamiento</label><br>-->
+        <!--            <label><input type="checkbox" name="docu_presentada[]" id="">Certificado de convivencia</label><br>-->
+        <!--        </label>-->
+        <input type="button" value="Limpiar">
+        <input type="submit" value="Enviar">
+
+    </form>
     <!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-    <span>Programación web 2 - UNLaM</span>
-</footer>
+    <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+        <span>Programación web 2 - UNLaM</span>
+    </footer>
 
 
 </body>
