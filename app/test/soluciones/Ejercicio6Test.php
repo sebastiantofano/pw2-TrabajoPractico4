@@ -57,6 +57,53 @@ class Ejercicio6Test extends TestCase{
         $this->assertFalse($resultado);
     }
 
+    public function test_valida_email_correcto(){
+        $email = "sebastian@gmail.com";
+        $resultado = validarEmail($email);
+        $this->assertTrue($resultado);
+    }
+
+    public function test_valida_email_incorrecto(){
+        $email1 = "se@gmail.com";
+        $email2 = "seba@g.com";
+        $email3 = "seba@gmail.co";
+
+        $resultado1 = validarEmail($email1);
+        $resultado2 = validarEmail($email2);
+        $resultado3 = validarEmail($email3);
+
+        $this->assertFalse($resultado1);
+        $this->assertFalse($resultado2);
+        $this->assertFalse($resultado3);
+    }
+
+    public function test_valida_sexo_correcto(){
+        $sexoM = "M";
+        $sexoF = 'F';
+        $resultadoM = validarSexo($sexoM);
+        $resultadoF = validarSexo($sexoF);
+        $this->assertTrue($resultadoM);
+        $this->assertTrue($resultadoF);
+    }
+
+    public function test_valida_sexo_incorrecto(){
+        $sexo = "O";
+        $resultado = validarSexo($sexo);
+        $this->assertFalse($resultado);
+    }
+
+    public function test_valida_fecha_nacimiento_correcta(){
+        $fecha_nac = "09/12/1995";
+        $resultado = validarFechaNacimiento($fecha_nac);
+        $this->assertTrue($resultado);
+    }
+
+    public function test_valida_fecha_nacimiento_incorrecta(){
+        $fecha_nac = "44/12/1995";
+        $resultado = validarFechaNacimiento($fecha_nac);
+        $this->assertFalse($resultado);
+    }
+
 }
 
 

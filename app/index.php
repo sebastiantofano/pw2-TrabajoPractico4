@@ -224,7 +224,7 @@ include_once "soluciones.php";
             <li>En regitro.php recibo variable nombre se envio a la funcion validarNombre que por ahora no hace nada.</li>
             <li>Imprimo el resultado por pantalla. Chequeo que esto funcione (ya garantizo envio de datos, llamada a función)</li>
             <li>Creo un test que valide un nombre correcto y lo devuelva. Ejecuto test, fallan. Implemento (en si, no hará más que devolver el nombre). Ejecuto test, pasan</li>
-            <li>Creo un test que valide un nombre incorrecto por ser corto y devuelva el error. Ejecuto test, falla sólo este. Implemento validacion rango mínimo. Ejecuto test, pasan</li>
+            <li>Creo un test que valide un nombre incorrecto por ser corto y devuelva el error. Ejecuto test, falla sólo este. Implemento <validacio></validacio>n rango mínimo. Ejecuto test, pasan</li>
             <li>Creo un test que valide un nombre incorrecto por ser largo y devuelva el error. Ejecuto test, falla sólo este. Implemento validacion rango máximo. Ejecuto test, pasan</li>
             <li>Tomo siguiente elemento del formulario y realizo los pasos por cada uno.</li>
         </ul>
@@ -232,26 +232,30 @@ include_once "soluciones.php";
         <p>A su vez, si tenemos un error, sólo será de los últimos minutos de desarrollo, y no de las últimas horas</p>
         <p class="w3-center w3-light-gray w3-padding">
             <em>
-                INGRESE SU CÓDIGO AQUÍ
+                <form action="registro.php" method="POST">
+                    <label>Nombre: <input type="text" name="nombre"></label><br />
+                    <label>Apellido <input type="text" name="apellido"></label><br />
+                    <label>D.N.I: <input type="text" name="dni" ></label><br />
+                    <label>E-mail: <input type="text" name="email"></label><br />
+                    <label>Sexo: <input type="radio" name="sexo" value="F" checked>Femenino</label>
+                    <label><input type="radio" name="sexo" value="M" >Masculino</label><br />
+                    <label>Fecha de nacimiento: <input type="text" name="fecha_nac" placeholder="DD/MM/AAAA"></label><br />
+                    <label>Tilde documentación presentada:<br />
+                        <label><input type="checkbox" name="docu_presentada[]" value="DNI" >DNI</label><br />
+                        <label><input type="checkbox" name="docu_presentada[]" value="Partida de Nacimiento" >Partida de Nacimiento</label><br>
+                        <label><input type="checkbox" name="docu_presentada[]" value="Libreta de casamiento" >Libreta de casamiento</label><br>
+                        <label><input type="checkbox" name="docu_presentada[]" value="Certificado de convivencia" >Certificado de convivencia</label><br>
+                    </label>
+                    <input type="reset" value="Limpiar">
+                    <input type="submit" value="Enviar">
+
+
             </em>
         </p>
     </div>
+</div>
 
-    <form action="./registro.php" method="POST">
-        <label>Nombre: <input type="text" name="nombre"></label><br />
-        <label>Apellido <input type="text" name="apellido"></label><br />
-        <label>D.N.I: <input type="text" name="dni" ></label><br />
-        <!--        <label>E-mail: <input type="text" name="" id=""></label><br />-->
-        <!--        <label>Sexo: <input type="text" name="" id=""></label><br />-->
-        <!--        <label>Fecha de nacimiento: <input type="text"></label><br />-->
-        <!--        <label>Tilde documentación presentada:<br />-->
-        <!--            <label><input type="checkbox" name="docu_presentada[]" id="">DNI</label><br />-->
-        <!--            <label><input type="checkbox" name="docu_presentada[]" id="">PArtida de Nacimiento</label><br>-->
-        <!--            <label><input type="checkbox" name="docu_presentada[]" id="">Libreta de casamiento</label><br>-->
-        <!--            <label><input type="checkbox" name="docu_presentada[]" id="">Certificado de convivencia</label><br>-->
-        <!--        </label>-->
-        <input type="button" value="Limpiar">
-        <input type="submit" value="Enviar">
+
 
     </form>
     <!-- Footer -->

@@ -72,13 +72,15 @@ function solucionEjercicio5($valores){
 
 //    Solución con condicional
     $mayor = null;
-    for($i = 0; $i < count($valores)-1; $i++){
+    for($i = 0; $i < count($valores); $i++){
         if ( $valores[$i] > $mayor){
             $mayor = $valores[$i];
         }
     }
     return $mayor;
 }
+
+
 
 
 
