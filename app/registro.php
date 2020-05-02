@@ -28,15 +28,21 @@
     $apellido = $_POST["apellido"];
     $dni = $_POST["dni"];
     $email = $_POST["email"];
-    $sexo = $_POST["sexo"];
+    if(isset($_POST["sexo"])){
+        $sexo = $_POST["sexo"];
+    } else {
+      $sexo = null;
+    }
+
     $fecha_nac = $_POST["fecha_nac"];
     if(isset($_POST["docu_presentada"])){
         $doc_presentada = $_POST["docu_presentada"];
     }else {
-        $doc_presentada = ["No se seleccionó ningún documento."];
+        $doc_presentada = ["No se ha seleccionado ningún documento."];
     }
 
 
+//    Validaciones
 //    Array que guardará los errores.
     $errores = [];
 
@@ -96,7 +102,7 @@
         <?php
             if (!is_null($doc_presentada)) {
                 foreach ($doc_presentada as $documento) {
-                    echo " - $documento<br />";
+                    echo "<li>$documento</li><br />";
                 }
             }
         ?>

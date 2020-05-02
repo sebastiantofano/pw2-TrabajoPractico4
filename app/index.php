@@ -235,14 +235,14 @@ include_once "soluciones.php";
         <p>Cada iteración nos garantiza que todo lo anterior sigue funcionando gracias a los test :) </p>
         <p>A su vez, si tenemos un error, sólo será de los últimos minutos de desarrollo, y no de las últimas horas</p>
         <div class=" w3-light-gray w3-padding">
-
+                <h2>Formulario</h2>
                 <form action="registro.php" method="POST" class="w3-border">
-                    <label>Nombre: <input type="text" name="nombre"class="w3-round"> <br />
-                    <label>Apellido <input type="text" name="apellido"class="w3-round"> <br />
+                    <label>Nombre: <input type="text" name="nombre" class="w3-round"> <br />
+                    <label>Apellido <input type="text" name="apellido" class="w3-round"> <br />
                     <label>D.N.I: <input type="text" name="dni" class="w3-round">  <br />
                     <label>E-mail: <input type="text" name="email"class="w3-round">  <br />
                     <label>Sexo: <input type="radio" name="sexo" value="F" class="w3-round">Femenino</label>
-                    <label><input type="radio" name="sexo" value="M"class="w3-round"</label>Masculino<br />
+                    <label><input type="radio" name="sexo" value="M" class="w3-round"</label>Masculino<br />
                     <label>Fecha de nacimiento: <input type="text" name="fecha_nac" class="w3-round" placeholder="DD/MM/AAAA"></label><br />
                     <label>Tilde documentación presentada:<br />
                         <label><input type="checkbox" name="docu_presentada[]" value="DNI" >DNI</label><br />
