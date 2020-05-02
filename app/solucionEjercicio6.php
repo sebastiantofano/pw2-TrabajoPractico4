@@ -7,6 +7,8 @@ function validarNombre($nombre){
     }
 }
 
+
+
 function validarApellido($apellido){
     if (strlen($apellido) >= 3 && strlen($apellido) <= 10){
         return true;

@@ -5,11 +5,22 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Página Registro</title>
 </head>
+<style>
+    .contenedor{
+        width: 80%;
+        margin: auto;
+        line-height: 20px;
+    }
+    .color-red{
+        color: red;
+    }
+</style>
 <body>
 <?php
 //   Acceso mediante super variable
@@ -19,7 +30,12 @@
     $email = $_POST["email"];
     $sexo = $_POST["sexo"];
     $fecha_nac = $_POST["fecha_nac"];
-    $doc_presentada = $_POST["docu_presentada"];
+    if(isset($_POST["docu_presentada"])){
+        $doc_presentada = $_POST["docu_presentada"];
+    }else {
+        $doc_presentada = ["No se seleccionó ningún documento."];
+    }
+
 
 //    Array que guardará los errores.
     $errores = [];
@@ -52,29 +68,50 @@
         $errores[] = "El campo de fecha de nacimiento es incorrecto. Debe tener el formato DD/MM/AAAA y estar dentro del rango de años 1900 y 2020.";
     }
 
-
-
-
-    echo "<p>El nombre es: $nombre</p>";
-    echo "<p>El apellido es: $apellido</p>";
-    echo "<p>El D.N.I es: $dni<p/>";
-    echo "<p>El email es: $email</p>";
-    echo "<p>El sexo es: $sexo</p>";
-    echo "<p>La fecha de nacimiento es: $fecha_nac</p>";
-
-    echo "<p>La documentación presentada es: </p>";
-    print_r($doc_presentada);
-
-
-    foreach($errores as $error){
-        echo "<br />$error";
-    }
-//
-
-
-
-
 ?>
+
+<div class="contenedor">
+    <!--    --><?php
+    //        echo "<p>El nombre es: $nombre</p>";
+    //        echo "<p>El apellido es: $apellido</p>";
+    //        echo "<p>El D.N.I es: $dni</p>";
+    //        echo "<p>El email es: $email</p>";
+    //        echo "<p>El sexo es: $sexo</p>";
+    //        echo "<p>La fecha de nacimiento es: $fecha_nac</p>";
+    //        echo "<p>La documentación presentada es: </p>";
+    //        if (!is_null($doc_presentada)) {
+    //            foreach ($doc_presentada as $documento) {
+    //                echo " - $documento<br />";
+    //            }
+    //        }
+    //          ?>
+    <!--Utilizando diferentes etiquetas de php-->
+        <p><strong>El nombre es: </strong><?php echo $nombre?></p>
+        <p><strong>El apellido es: </strong><?php echo $apellido?></p>
+        <p><strong>El D.N.I es: </strong><?php echo $dni?></p>
+        <p><strong>El email es: </strong><?php echo $email?></p>
+        <p><strong>El sexo es: </strong> <?= $sexo?></p>
+        <p><strong>La fecha de nacimiento es: </strong><?= $fecha_nac?></p>
+        <p><strong>La documentación presentada es: </strong></p>
+        <?php
+            if (!is_null($doc_presentada)) {
+                foreach ($doc_presentada as $documento) {
+                    echo " - $documento<br />";
+                }
+            }
+        ?>
+
+    <div class="color-red">
+        <?php
+            //    Mostrar el array de errores
+            echo "<p><strong>Errores en el formulario: </strong></p>";
+            foreach($errores as $error){
+                echo "- $error<br />";
+            }
+        ?>
+    </div>
+</div>
+
 
 
 </body>
