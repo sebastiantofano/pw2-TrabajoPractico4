@@ -112,7 +112,7 @@
             //    Mostrar el array de errores
             echo "<p><strong>Errores en el formulario: </strong></p>";
             foreach($errores as $error){
-                echo "- $error<br />";
+                echo "<p>- $error</p>";
             }
         ?>
     </div>

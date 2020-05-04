@@ -117,7 +117,7 @@ include_once "soluciones.php";
         <p class="w3-center w3-light-gray w3-padding">
             <em>
                 <?php
-                $mascota = "asd";
+                $mascota = "perro";
 
                 $resultado = solucionEjercicio3($mascota);
 
